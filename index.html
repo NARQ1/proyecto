@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Programacion III</title>
+    <title>Venta de Artículos</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -61,8 +61,46 @@
             color: black !important;
             background-color: #3a3a3a;
             font-size: 20px;
-            font-family: 'Josefin Sans', sans-serif;;
+            font-family: 'Josefin Sans', sans-serif;
         }
+
+        button{
+            font-family: 'Josefin Sans', sans-serif;
+            background: rgb(70, 70, 70); /* color de fondo */
+            color: #ffffff; /* color de fuente */
+            border: 2px solid #ffffff; /* tamaño y color de borde */
+            padding: 16px 20px;
+            border-radius: 3px; /* redondear bordes */
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            display: inline-block;
+            }
+            button:hover {
+            color: rgb(0, 0, 0); /* color de fuente hover */
+            }
+            button::after {
+            content: "";
+            background: #ffffff; /* color de fondo hover */
+            position: absolute;
+            z-index: -1;
+            padding: 16px 20px;
+            display: block;
+            left: 0;
+            right: 0;
+            top: -100%;
+            bottom: 100%;
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
+            }
+            button:hover::after {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
+            }
     </style>
   </head>
   <body>
