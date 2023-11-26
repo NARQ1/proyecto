@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Programacion III</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+
+        body{
+            background-color: gray;
+        }
+        #misdatos {
+            text-align: center;
+			padding-bottom: 10px;
+        }
+
+        #productos{
+            text-align: center;
+			display: flex;
+			align-items: center;
+			max-width: 1200px;
+
+        }
+        
+        #cosas{
+            font-size:15px;
+			padding-left: 20px;
+			padding-right: 20px;
+			align-items: center;
+			max-width: 300px;
+        }
+
+        #contenedor{
+            margin-top: 30px;
+			margin-bottom: 30px;
+			justify-content: center;
+			display:flex;
+        }
+        
+        p{
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+
+        }
+        
+        th{
+            background-color: black !important;
+            color: white !important;
+        }
+        tr{
+            color: black !important;
+            background-color: #3a3a3a;
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Elementos de HTML-->
+	<div id="misdatos">
+        <nav class="navbar navbar-default" style="background-color: #343636!important;" role="navigation">
+		    <h1 style="text-align: center; color: white; font-family: 'Josefin Sans', sans-serif;">Mi venta de artículos</h1>
+            <hr>
+        </nav>
+	</div>
+	
+        
+        
+
+   
+	
+    <div id="contenedor">
+       <div id="productos">
+        <div id="cosas">
+            <img style="height: 115px; width: 180px;" src="https://www.pchmayoreo.com/pub/media/catalog/product/x/s/xspmg06b-front.png" alt="">
+            <p>Monitor <br> Asus <br>$2500</p>
+		    <button id="bot1" onclick="agregarmonitor()">Comprar</button>
+
+        </div>
+
+        <div id="cosas">
+            <img style="height: 115px; width: 180px;" src="https://www.gamefactor.mx/images/galeria_articulos/KBG500-01.png" alt="">
+            <p>Teclado Gamer <br> HyperX <br>$1500</p>
+            <button id="bot2" onclick="agregarteclado()">Comprar</button>
+        </div>
+
+        <div id="cosas">
+            <img style="height: 115px; width: 180px;" src="https://www.pchmayoreo.com/pub/media/catalog/product/7/5/7503030903448-x.png" alt="">
+             <p>Mouse RGB <br> Logitech <br>$500</p>
+            <button id="bot3" onclick="agregarmouse()">Comprar</button>
+        </div>
+
+        <div>
+            <img style="height: 115px; width: 180px;" src="https://ignitestore.mx/assets/uploads/sw_matrexx.png?1687203997" alt="">
+            <p>Gabinete Gamer <br> Cooler Master <br>$1800</p>
+
+            <button id="bot4" onclick="agregargabinete()">Comprar</button>
+        </div>
+        
+        </div> 
+	
+    </div>    
+
+	<div class="container">
+		<table id="tabla" data-height="460" data-auto-refresh="true" class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th data-field="Nombre">Nombre</th>
+					<th data-field="Precio">Precio</th>
+					<th data-field="Descuento">Descuento</th>
+                    <th data-field="Preciofinal">Precio final</th>
+                    <th data-field="imagen">Artículo</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+    <footer>
+	<div id="misdatos">
+        <br><br><br><br><br>
+		<p>Néstor Andrés Rivera Quintana <br> nestor.rivera3073@alumnos.udg.mx <br> Escuela Preparatoria San José Del Valle
+        <br>Programación III <br>Profesor: Angel Emmanuel Sanchez Cuenca <br>Copyright © Todos los derechos reservados</p>
+	</div>
+    </footer>
+	
+  </body>
+  <script>
+      	/* Javascript */   
+		$(function () {
+			$('#tabla').bootstrapTable({
+				data: datos,
+				formatNoMatches: function () {
+					return 'No hay datos';
+				}
+			});
+		});
+		
+		var datos = [];
+
+        function muestraDatos(){
+			$('#tabla').bootstrapTable('load', datos);
+		}
+
+        function agregarmonitor(){
+        var descuentos = prompt("Inserta la cantidad de descuento:");
+         
+        var monitor = {
+            Nombre: "Monitor Asus",
+            Precio: "$2500",
+            Descuento: "$" + descuentos + " pesos.",
+            Preciofinal: 2500 - descuentos + " pesos.",
+            imagen: "<img width=\"100\" heigth=\"100\" src=\"https://www.pchmayoreo.com/pub/media/catalog/product/x/s/xspmg06b-front.png\" >",
+            }
+            datos.push(monitor);
+        muestraDatos();
+        }
+        
+        function agregarteclado(){
+        var descuentos = prompt("Inserta la cantidad de descuento:");
+         
+        var teclado = {
+            Nombre: "Teclado Gamer",
+            Precio: "$1500",
+            Descuento: "$" + descuentos + " pesos.",
+            Preciofinal:  1500 - descuentos + " pesos.",
+            imagen: "<img width=\"100\" heigth=\"100\" src=\"https://www.gamefactor.mx/images/galeria_articulos/KBG500-01.png\" >",
+            }
+            datos.push(teclado);
+        muestraDatos();
+        }
+
+        function agregarmouse(){
+        var descuentos = prompt("Inserta la cantidad de descuento:");
+         
+        var mouse = {
+            Nombre: "Mouse RGB",
+            Precio: "$500",
+            Descuento: "$" + descuentos + " pesos.",
+            Preciofinal: 500 - descuentos + " pesos.",
+            imagen: "<img width=\"100\" heigth=\"100\" src=\"https://www.pchmayoreo.com/pub/media/catalog/product/7/5/7503030903448-x.png\" >",
+            }
+            datos.push(mouse);
+        muestraDatos();
+        }
+
+        function agregargabinete(){
+        var descuentos = prompt("Inserta la cantidad de descuento:");
+         
+        var gabinete = {
+            Nombre: "Teclado Gamer",
+            Precio: "$1800",
+            Descuento: "$" + descuentos + " pesos.",
+            Preciofinal:  1800 - descuentos + " pesos.",
+            imagen: "<img width=\"100\" heigth=\"100\" src=\"https://ignitestore.mx/assets/uploads/sw_matrexx.png?1687203997\" >",
+            }
+            datos.push(gabinete);
+        muestraDatos();
+        }
+
+
+		
+
+		// Aqui abajo agrega tus funciones
+
+  </script>
+</html>
+    
